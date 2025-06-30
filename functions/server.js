@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3001;
 
 // Security configuration
 const JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-change-in-production';
-const API_KEY = process.env.API_KEY || 'agile-api-key-2024';
+const API_KEY = process.env.API_KEY || 'marfiyanoprojman-api-key-2024';
 
 // Security middleware
 app.use(helmet({
@@ -34,12 +34,12 @@ app.use(cors({
 }));
 
 // Rate limiting
-/* const limiter = rateLimit({
+const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100000, // limit each IP to 100 requests per windowMs
   message: 'Too many requests from this IP, please try again later.'
 });
-app.use('/api/', limiter); */
+app.use('/api/', limiter);
 
 app.use(express.json({ limit: '10mb' }));
 
