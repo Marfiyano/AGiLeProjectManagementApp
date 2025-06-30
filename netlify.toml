@@ -1,0 +1,11 @@
+[functions]
+  # We are goint to use ES modules so we need esbuild to transpile the code.
+  node_bundler = "esbuild"
+  # This line will include into the environment a file with the mock data.
+  included_files = ["data/*.json"]
+
+# We have to tell the Netlify that this URL will be served by the server.js function.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

@@ -76,7 +76,6 @@ const StoryDetailModal: React.FC<StoryDetailModalProps> = ({
     
     try {
       const storyData = await dataService.getStory(storyId);
-      console.log('log1', storyData);
       if (storyData) {
         setStory(storyData);
         setFormData({
