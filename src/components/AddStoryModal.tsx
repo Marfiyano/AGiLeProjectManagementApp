@@ -43,8 +43,8 @@ const AddStoryModal: React.FC<AddStoryModalProps> = ({
   }, [isOpen, projectId]);
 
   const loadData = async () => {
-    const users = dataService.getProjectUsers(projectId);
-    const sprints = dataService.getAvailableSprints(projectId);
+    const users = await dataService.getProjectUsers(projectId);
+    const sprints = await dataService.getAvailableSprints(projectId);
     
     setProjectUsers(users);
     setAvailableSprints(sprints);

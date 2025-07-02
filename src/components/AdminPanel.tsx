@@ -63,13 +63,7 @@ const AdminPanel: React.FC = () => {
     }
   };
 
-  const getUserProjectInfo = async (userId: string) => {
-    const userProject = await dataService.getUserProject(userId);
-    const project = userProject ? dataService.getProject(userProject.projectId) : null;
-    return { project, role: userProject?.role };
-  };
-
-  const getRoleDisplayName = (role: 'project_manager' | 'tech_lead' | 'personnel') => {
+  const getRoleDisplayName = (role: 'project_manager' | 'tech_lead' | 'personnel' | 'admin') => {
     return dataService.getRoleDisplayName(role);
   };
 
@@ -251,7 +245,6 @@ const AdminPanel: React.FC = () => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {users.map((user) => {
-                const { project, role } = getUserProjectInfo(user.id);
                 return (
                   <tr key={user.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -270,10 +263,10 @@ const AdminPanel: React.FC = () => {
                       {user.email}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {project?.name || 'N/A'}
+                      {user?.projectName || 'N/A'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                      {role || 'N/A'}
+                      {user?.projectRole || 'N/A'}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${

@@ -84,7 +84,7 @@ class DataService {
     });
   }
 
-  async getUserProject(userId: string): Promise<UserProject[]> {
+  async getUserProject(userId: string): Promise<UserProject> {
     return apiService.getUserProject(userId);
   }
 

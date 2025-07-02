@@ -4,6 +4,8 @@ export interface User {
   email: string;
   role: 'admin' | 'project_manager' | 'tech_lead' | 'personnel';
   status: 'active' | 'inactive';
+  projectName?: string;
+  projectRole?: string;
 }
 
 export interface Project {
